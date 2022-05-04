@@ -125,5 +125,26 @@ def main():
     #主事件循环
     app.mainloop()
 
+def connect_to_server():
+    import socket  # 导入 socket 模块
+ 
+ 
+    s = socket.socket()  # 创建 socket 对象
+
+    port = 12345  # 设置端口号
+    
+    s.connect(("202.38.247.165", port))
+    r = s.recv(1024)
+    print(r)
+    data_len = eval(r)
+    data = s.recv(data_len)
+    s.close()
+    
+    
+    with open(r'/Users/yahoo17/code/Robot-Navigation-System-Based-on-REC/a.jpg', 'ba') as f:
+        f.write(data)
+        f.close()
+
+
 if  __name__ == "__main__":
     main()
