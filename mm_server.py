@@ -28,7 +28,9 @@ def func(instruction_id):
     #1 
     with open(data_path) as data_json_file:
         data_json = json.load(data_json_file)
-        print(data_json)
+        for single_task in data_json:
+            scan = single_task["scan"]
+            print(scan)
 
 
 func(211_3)
