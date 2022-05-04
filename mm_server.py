@@ -105,5 +105,12 @@ def main_server(image_path_list):
 
 
 func("4634_215")
+=======
+            scan = single_task["scan"]
+            print(scan)
+
+
+func(211_3)
+>>>>>>> 606d22f1ce446d9ed5b44e57b54e73a733c06469
 
 
