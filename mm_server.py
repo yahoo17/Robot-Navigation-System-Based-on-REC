@@ -59,8 +59,10 @@ def func(instruction_id):
         image_path = data_set_path + image_name + "_i0_0.jpg"
         image_path_list.append(image_path)
         print(image_path)
+    
+    return image_path_list
         
-    main_server(image_path_list)
+    # main_server(image_path_list)
 
         # with open(image_path) as image_file:
     
@@ -89,28 +91,9 @@ def main_server(image_path_list):
     
     
         
-    
 
+if __name__ == "__main__":
+    func("4634_215")
 
-    
-
-
-    
-
-
-
-
-
-
-
-
-func("4634_215")
-=======
-            scan = single_task["scan"]
-            print(scan)
-
-
-func(211_3)
->>>>>>> 606d22f1ce446d9ed5b44e57b54e73a733c06469
 
 

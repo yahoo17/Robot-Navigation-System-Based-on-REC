@@ -4,6 +4,7 @@ import time
 import requests
 import json
 
+import mm_rpc_client
 
 # import eval_release.py as eval_release
 # def get_model_reply(msg):
@@ -17,43 +18,10 @@ import json
 #     eval = eval_release.run_eval(resfiles, split_tag, evalType='nav')
 
 def get_response(msg):
-    api = 'http://www.tuling123.com/openapi/api'
-    dat = {
-        # "key":333,
-        "info":msg,
-        "perception": {
-            "inputText": {
-                "text": msg
-            },
-            "inputImage": {
-                "url": "imageUrl"
-            },
-            "selfInfo": {
-                "location": {
-                    "city": "北京",
-                    "province": "北京",
-                    "street": "信息路"
-                }
-            }
-        },
-        "userInfo": {
-            "apiKey": "yourapikey",
-            "userId": 19990706
-        }
-    }
-    dat = json.dumps(dat)
-    r = requests.post(api, data=dat).json()
+   
+    n = mm_rpc_client.get_image(msg)
 
-    #以下为r的内容
-    #{'emotion': {'userEmotion': {'emotionId': 10300, 'd': 0, 'p': 0, 'a': 0},
-    #              'robotEmotion': {'emotionId': 0, 'd': 0, 'p': 0, 'a': 0}},
-    #  'intent': {'code': 10004, 'actionName': '', 'intentName': ''},
-    # 'results': [{'resultType': 'text', 'values': {'text': '别兴奋别兴奋，很高兴认识你！'}, 'groupType': 1}]}
-
-    # mesage = r['results'][0]['values']['text']
-    mesage = r['text']
-#     print(r['results'][0]['values']['text'])
-    return mesage
+    return n
 
 def main():
 
