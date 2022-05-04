@@ -15,6 +15,6 @@ class TestService:
 def hello(name):
     return "Hello, {}!".format(name)
 
-server = TcpRpcServer('0.0.0.0', 9988)
+server = TcpRpcServer('0.0.0.0', 2061)
 server.serve()
 
