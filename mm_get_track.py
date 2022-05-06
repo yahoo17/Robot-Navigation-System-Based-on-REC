@@ -64,33 +64,29 @@ def func(instruction_id):
         print(image_path)
     
     return image_path_list
-        
-    # main_server(image_path_list)
 
-        # with open(image_path) as image_file:
-    
     
             
             
-def main_server(image_path_list):
-    # server
-    import socket               # 导入 socket 模块
-    
-    s = socket.socket()         # 创建 socket 对象
-    host = socket.gethostname()  # 获取本地主机名
-    port = 12345                # 设置端口
-    s.bind((host, port))        # 绑定端口
-
-    s.listen(5)                 # 等待客户端连接
-    while True:
-        conn, addr = s.accept()     # 建立客户端连接
-        print('连接地址:', addr)
-        for pic_path in image_path_list:
-            with open(pic_path, 'rb') as f:
-                data = f.read()
-                conn.send(str(len(data)).encode('utf-8'))
-                conn.send(data)
-        conn.close()                # 关闭连接    
+# def main_server(image_path_list):
+#     # server
+#     import socket               # 导入 socket 模块
+#
+#     s = socket.socket()         # 创建 socket 对象
+#     host = socket.gethostname()  # 获取本地主机名
+#     port = 12345                # 设置端口
+#     s.bind((host, port))        # 绑定端口
+#
+#     s.listen(5)                 # 等待客户端连接
+#     while True:
+#         conn, addr = s.accept()     # 建立客户端连接
+#         print('连接地址:', addr)
+#         for pic_path in image_path_list:
+#             with open(pic_path, 'rb') as f:
+#                 data = f.read()
+#                 conn.send(str(len(data)).encode('utf-8'))
+#                 conn.send(data)
+#         conn.close()                # 关闭连接
     
     
         
