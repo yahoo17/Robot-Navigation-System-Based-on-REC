@@ -53,8 +53,8 @@ def func(instruction_id):
     
     # zsNo4HB9uLZ
     print("#5")
-    data_set_path = "/home/cike/REVERIE/Matterport/v1/scans/" + scan + "/matterport_color_images/"
-    # data_set_path = "/mnt/beeyan/Matterport/v1/scans/zsNo4HB9uLZ/zsNo4HB9uLZ/matterport_color_images/"
+    # data_set_path = "/home/cike/REVERIE/Matterport/v1/scans/" + scan + "/matterport_color_images/"
+    data_set_path = "/mnt/beeyan/Matterport/v1/scans/zsNo4HB9uLZ/zsNo4HB9uLZ/matterport_color_images/"
 
     image_path_list = []
     for node in trajectory:
