@@ -19,7 +19,7 @@ def encode_picture(img_path):
 class TestService:
 
     async def get_image_list(self, instruction_id):
-        image_path_list = mm_server.func(instruction_id)
+        image_path_list = mm_get_track.func(instruction_id)
         file_list = []
         for path in image_path_list:
             file = encode_picture(path)
