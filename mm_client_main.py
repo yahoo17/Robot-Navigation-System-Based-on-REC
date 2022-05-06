@@ -42,23 +42,28 @@ def main():
     #     root.resizable(0, 0)
     
     def load_img(index,path):
-        paned = tk.PanedWindow(app)
+        root = tk.Toplevel(app)
+        title_i = "第"+str(index)+"个轨迹"
+        root.title(title_i)
+        paned = tk.PanedWindow(root)
         paned.pack(fill=tk.X, side=tk.LEFT)
         img = Image.open(path)
-        paned.photo = ImageTk.PhotoImage(img.resize((100, 130)))
+        paned.photo = ImageTk.PhotoImage(img.resize((400,600)))
         tk.Label(paned, image=paned.photo).grid(row=index, column=0)
-    def show_0():
-        imgs = ['0.jpg','1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg']
+    def show_0(n):
+        imgs =[]
+        for i in range(n):
+            imgs.append(str(i)+".jpg")
         for i in range(len(imgs)):
             load_img(i,imgs[i])
 
     def returnMsg(send):
-        # returnback = get_response(send)
-        returnback=""
+        n,_ = get_response(send)
         if send == '\n':
             returnback = '请不要输入空消息噢'
         strMsg = "华智冰:" + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())+ '\n'
-        show_0()
+        
+        show_0(n)
         txtMsgList.insert(END, strMsg, 'greencolor')
         txtMsgList.insert(END, returnback)
         txtMsgList.insert(END, '\n')
