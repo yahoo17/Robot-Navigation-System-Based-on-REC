@@ -12,6 +12,7 @@ def decode_picture(base64_data,file_name):
 # print(resp)
 
 def get_image(instruction_id):
+    cli = TcpRpcClient('127.0.0.1', 2061, timeout=2)
     resp = cli.call('TestService.get_image_list', instruction_id= instruction_id)
     # print(resp)
     for index, file in enumerate(resp):
@@ -19,7 +20,7 @@ def get_image(instruction_id):
     return len(resp), resp
 
 
-cli = TcpRpcClient('127.0.0.1', 2061, timeout = 2)
-
-resp = cli.call('TestService.add', a=1, b=2, c=3)
-print(resp)
+if __name__ == "__main__":
+    cli = TcpRpcClient('127.0.0.1', 2061, timeout = 2)
+    resp = cli.call('TestService.add', a=1, b=2, c=3)
+    print(resp)

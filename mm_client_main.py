@@ -62,7 +62,7 @@ def main():
         if send == '\n':
             returnback = '请不要输入空消息噢'
         strMsg = "华智冰:" + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())+ '\n'
-        
+
         show_0(n)
         txtMsgList.insert(END, strMsg, 'greencolor')
         txtMsgList.insert(END, returnback)

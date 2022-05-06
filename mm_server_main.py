@@ -39,6 +39,7 @@ class TestService:
 # def hello(name):
 #     return "Hello, {}!".format(name)
 
-server = TcpRpcServer('0.0.0.0', 2061)
-server.serve()
+if __name__ == "__main":
+    server = TcpRpcServer('0.0.0.0', 2061)
+    server.serve()
 
