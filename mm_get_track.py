@@ -7,7 +7,7 @@ data_path = "/mnt/beeyan/REVERIE/tasks/REVERIE/data/REVERIE_val_unseen.json"
 
 # data_set_path = "/mnt/beeyan/Matterport/v1/scans"
 
-data_set_path = "/home/cike/REVERIE/Matterport/v1/scans“
+data_set_path = "/home/cike/REVERIE/Matterport/v1/scans"
 
 
 print("server is listening")
