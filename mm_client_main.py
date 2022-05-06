@@ -40,7 +40,7 @@ def main():
     #     root = tk.Tk()
     #     root.wm_geometry("530x150+500+300")
     #     root.resizable(0, 0)
-    imgs = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg']
+    
     def load_img(index,path):
         paned = tk.PanedWindow(app)
         paned.pack(fill=tk.X, side=tk.LEFT)
@@ -48,11 +48,13 @@ def main():
         paned.photo = ImageTk.PhotoImage(img.resize((100, 130)))
         tk.Label(paned, image=paned.photo).grid(row=index, column=0)
     def show_0():
+        imgs = ['0.jpg','1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg']
         for i in range(len(imgs)):
             load_img(i,imgs[i])
 
     def returnMsg(send):
-        returnback = get_response(send)
+        # returnback = get_response(send)
+        returnback=""
         if send == '\n':
             returnback = '请不要输入空消息噢'
         strMsg = "华智冰:" + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())+ '\n'
@@ -110,25 +112,6 @@ def main():
     #主事件循环
     app.mainloop()
 
-def connect_to_server():
-    import socket  # 导入 socket 模块
- 
- 
-    s = socket.socket()  # 创建 socket 对象
-
-    port = 12345  # 设置端口号
-    
-    s.connect(("202.38.247.165", port))
-    r = s.recv(1024)
-    print(r)
-    data_len = eval(r)
-    data = s.recv(data_len)
-    s.close()
-    
-    
-    with open(r'/Users/yahoo17/code/Robot-Navigation-System-Based-on-REC/a.jpg', 'ba') as f:
-        f.write(data)
-        f.close()
 
 
 if  __name__ == "__main__":
