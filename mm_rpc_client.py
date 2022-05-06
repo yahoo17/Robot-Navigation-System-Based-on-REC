@@ -21,5 +21,5 @@ def get_image(instruction_id):
     # print(resp)
     for index, file in enumerate(resp):
         decode_picture(file,str(index))
-    return len(resp)
+    return len(resp), resp
 

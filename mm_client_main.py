@@ -3,7 +3,8 @@ from tkinter import *
 import time
 import requests
 import json
-
+import tkinter as tk
+from PIL import Image, ImageTk
 import mm_rpc_client
 
 # import eval_release.py as eval_release
@@ -19,9 +20,9 @@ import mm_rpc_client
 
 def get_response(msg):
    
-    n = mm_rpc_client.get_image(msg)
+    n, resp = mm_rpc_client.get_image(msg)
 
-    return n
+    return n, resp
 
 def main():
 
@@ -34,12 +35,28 @@ def main():
         txtMsg.delete('0.0', END)
         returnMsg(send)
         cancelMsg()
+    
+    # def showimg():
+    #     root = tk.Tk()
+    #     root.wm_geometry("530x150+500+300")
+    #     root.resizable(0, 0)
+    imgs = ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg']
+    def load_img(index,path):
+        paned = tk.PanedWindow(app)
+        paned.pack(fill=tk.X, side=tk.LEFT)
+        img = Image.open(path)
+        paned.photo = ImageTk.PhotoImage(img.resize((100, 130)))
+        tk.Label(paned, image=paned.photo).grid(row=index, column=0)
+    def show_0():
+        for i in range(len(imgs)):
+            load_img(i,imgs[i])
 
     def returnMsg(send):
         returnback = get_response(send)
         if send == '\n':
             returnback = '请不要输入空消息噢'
         strMsg = "华智冰:" + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())+ '\n'
+        show_0()
         txtMsgList.insert(END, strMsg, 'greencolor')
         txtMsgList.insert(END, returnback)
         txtMsgList.insert(END, '\n')
@@ -116,3 +133,10 @@ def connect_to_server():
 
 if  __name__ == "__main__":
     main()
+
+#!/usr/bin/python3
+# coding=utf-8
+
+
+
+
