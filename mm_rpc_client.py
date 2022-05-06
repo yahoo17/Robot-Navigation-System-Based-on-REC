@@ -19,9 +19,7 @@ def get_image(instruction_id):
     return len(resp), resp
 
 
-if __name__ == "__main__":
+cli = TcpRpcClient('127.0.0.1', 2061, timeout = 2)
 
-    cli = TcpRpcClient('127.0.0.1', 2061, timeout = 2)
-
-    resp = cli.call('TestService.add', a=1, b=2, c=3)
-    print(resp)
+resp = cli.call('TestService.add', a=1, b=2, c=3)
+print(resp)
