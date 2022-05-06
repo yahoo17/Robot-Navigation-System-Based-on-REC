@@ -32,10 +32,12 @@ def func(instruction_id):
     print("#1 #2 #3")
 
     scan = "random"
+    instruction_id = instruction_id.strip()
     with open(data_path) as data_json_file:
         data_json = json.load(data_json_file)
         for single_task in data_json:
-            print(single_task["id"])
+            # print(single_task["id"])
+
             if single_task["id"] == instruction_id:
                 scan = single_task["scan"]
                 print("got the scan"+ scan)
