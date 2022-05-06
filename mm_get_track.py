@@ -7,7 +7,7 @@ data_path = "/mnt/beeyan/REVERIE/tasks/REVERIE/data/REVERIE_val_unseen.json"
 
 # data_set_path = "/mnt/beeyan/Matterport/v1/scans"
 
-data_set_path = "/home/cike/REVERIE/Matterport/v1/scans"
+# data_set_path = "/home/cike/REVERIE/Matterport/v1/scans"
 
 
 print("server is listening")
@@ -28,8 +28,9 @@ def func(instruction_id):
     # 4. look up the result_path json file and find the trajectory list
 
     # 5. according to the trajectory list #4 and the scanid #3 to look up the picture
+    print("get_track begin")
+    print("#1 #2 #3")
 
-    #1 #2 #3
     scan = "random"
     with open(data_path) as data_json_file:
         data_json = json.load(data_json_file)
@@ -39,7 +40,7 @@ def func(instruction_id):
                 scan = single_task["scan"]
                 print("got the scan",scan)
     
-    #4
+    print("#4")
     trajectory = []
     sub_instrution = instruction_id + "_0"
     with open(result_path) as result_json_file:
@@ -51,7 +52,7 @@ def func(instruction_id):
                 print(trajectory)
     
     # zsNo4HB9uLZ
-    #5
+    print("#5")
     data_set_path = "/home/cike/REVERIE/Matterport/v1/scans/" + scan + "/matterport_color_images/"
     # data_set_path = "/mnt/beeyan/Matterport/v1/scans/zsNo4HB9uLZ/zsNo4HB9uLZ/matterport_color_images/"
 
@@ -63,7 +64,7 @@ def func(instruction_id):
         image_path_list.append(image_path)
         print(image_path)
 
-    print("get_track image path list size:"+ str(len(image_path_list)))
+    print("get_track, image path list size:"+ str(len(image_path_list)))
     return image_path_list
 
     
