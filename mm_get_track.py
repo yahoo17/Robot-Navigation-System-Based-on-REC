@@ -35,6 +35,7 @@ def func(instruction_id):
     with open(data_path) as data_json_file:
         data_json = json.load(data_json_file)
         for single_task in data_json:
+            print(single_task["id"])
             if single_task["id"] == instruction_id:
                 scan = single_task["scan"]
                 print("got the scan"+ scan)
