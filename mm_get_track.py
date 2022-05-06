@@ -35,10 +35,9 @@ def func(instruction_id):
     with open(data_path) as data_json_file:
         data_json = json.load(data_json_file)
         for single_task in data_json:
-            task_id = single_task["id"]
-            if task_id == instruction_id:
+            if single_task["id"] == instruction_id:
                 scan = single_task["scan"]
-                print("got the scan",scan)
+                print("got the scan"+ scan)
     
     print("#4")
     trajectory = []
@@ -92,9 +91,9 @@ def func(instruction_id):
     
     
         
-
-if __name__ == "__main__":
-    func("4634_215")
+#
+# if __name__ == "__main__":
+#     func("4634_215")
 
 
 
