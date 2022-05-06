@@ -65,6 +65,8 @@ def main():
 
         show_0(n)
         txtMsgList.insert(END, strMsg, 'greencolor')
+        if n != 0:
+            returnback = "已经把该instruction的轨迹展示出来了！"
         txtMsgList.insert(END, returnback)
         txtMsgList.insert(END, '\n')
         txtMsg.delete('0.0', END)
