@@ -62,7 +62,8 @@ def func(instruction_id):
         image_path = data_set_path + image_name + "_i0_0.jpg"
         image_path_list.append(image_path)
         print(image_path)
-    
+
+    print("get_track image path list size:"+ str(len(image_path_list)))
     return image_path_list
 
     
