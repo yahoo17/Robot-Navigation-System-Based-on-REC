@@ -20,6 +20,7 @@ class TestService:
 
     async def get_image_list(self, instruction_id):
         print("get_image_list begin")
+        print("instruction_id"+instruction_id)
         image_path_list = mm_get_track.func(instruction_id)
         file_list = []
         for path in image_path_list:
