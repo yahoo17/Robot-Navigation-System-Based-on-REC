@@ -62,12 +62,12 @@ def func(instruction_id):
     for node in trajectory:
         viewpointid = node[0]
         compose.image_compose(data_set_path ,viewpointid)
-        print(viewpointid)
+        # print(viewpointid)
         image_path = data_set_path + viewpointid + "_i0_0.jpg"
         image_path = data_set_path + viewpointid + "_final.jpg"
 
         image_path_list.append(image_path)
-        print(image_path)
+        # print(image_path)
 
     print("get_track, image path list size:"+ str(len(image_path_list)))
     return image_path_list
