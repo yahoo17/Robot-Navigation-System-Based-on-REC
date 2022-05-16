@@ -40,7 +40,7 @@ def func(instruction_id):
 
             if single_task["id"] == instruction_id:
                 scan = single_task["scan"]
-                print("got the scan"+ scan)
+                print("got the scan: "+ scan)
     
     print("#4")
     trajectory = []
@@ -65,11 +65,10 @@ def func(instruction_id):
         # print(viewpointid)
         image_path = data_set_path + viewpointid + "_i0_0.jpg"
         image_path = data_set_path + viewpointid + "_final.jpg"
-
+        print(image_path)
         image_path_list.append(image_path)
-        # print(image_path)
 
-    print("get_track, image path list size:"+ str(len(image_path_list)))
+    print("get_track, image path list size:" + str(len(image_path_list)))
     return image_path_list
 
     

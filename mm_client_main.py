@@ -122,6 +122,7 @@ def main():
 
 
 if  __name__ == "__main__":
+    mm_rpc_client.test_conn()
     main()
 
 #!/usr/bin/python3

@@ -1,4 +1,5 @@
 from agileutil.rpc.server import TcpRpcServer, rpc
+from agileutil.rpc.server import HttpRpcServer, rpc
 import asyncio
 import mm_get_track
 
@@ -44,6 +45,9 @@ class TestService:
 #     return "Hello, {}!".format(name)
 
 
-server = TcpRpcServer('0.0.0.0', 2061)
-server.serve()
+# server = TcpRpcServer('0.0.0.0', 2061)
+# server.serve()
 
+
+s = HttpRpcServer('0.0.0.0', 2061, workers=1)
+s.serve()
