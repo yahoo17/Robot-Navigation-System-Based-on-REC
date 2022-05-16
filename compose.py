@@ -9,7 +9,7 @@ def image_compose(scanid):
     IMAGE_SIZE = 256  # 每张小图片的大小
     IMAGE_ROW = 3  # 图片间隔，也就是合并成一张图后，一共有几行
     IMAGE_COLUMN = 6  # 图片间隔，也就是合并成一张图后，一共有几列
-    scanid = "0b22fa63d0f54a529c525afbf2e8bb25"
+    # scanid = "0b22fa63d0f54a529c525afbf2e8bb25"
     IMAGE_SAVE_PATH = scanid + "_final.jpg"
     to_image = Image.new('RGB', (IMAGE_COLUMN * IMAGE_SIZE, IMAGE_ROW * IMAGE_SIZE)) #创建一个新图
     # 循环遍历，把每张图片按顺序粘贴到对应位置上

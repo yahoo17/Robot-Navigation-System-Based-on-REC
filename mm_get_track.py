@@ -1,6 +1,6 @@
 import os
 import json
-
+import compose
 result_path = "/mnt/beeyan/REVERIE/tasks/REVERIE/experiments/releaseCheck/results/NP_cg_pm_sample_imagenet_mean_pooled_1heads_val_unseen.json"
 
 data_path = "/mnt/beeyan/REVERIE/tasks/REVERIE/data/REVERIE_val_unseen.json"
@@ -61,8 +61,11 @@ def func(instruction_id):
     image_path_list = []
     for node in trajectory:
         image_name = node[0]
+        compose.image_compose(image_name)
         print(image_name)
         image_path = data_set_path + image_name + "_i0_0.jpg"
+        image_path = data_set_path + image_name + "_final.jpg"
+
         image_path_list.append(image_path)
         print(image_path)
 
