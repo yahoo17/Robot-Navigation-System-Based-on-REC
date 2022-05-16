@@ -89,12 +89,12 @@ def main():
     def show_0(n):
         imgs =[]
         for i in range(n):
-            imgs.append(str(i)+".jpg")
+            imgs.append(str(i+1)+".jpg")
 
         frames = []
         for fn in imgs:
             frames.append(Image.open(fn))
-        print("frame size:"+len(frames))
+        print("frame size:"+ str(len(frames)))
         save(frames, 'final_track.gif', duration=1, unit="seconds", between="frames", loop=False)
         root = tk.Toplevel(app)
         title_i = "导航轨迹"
