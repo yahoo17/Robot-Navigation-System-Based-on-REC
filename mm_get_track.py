@@ -55,16 +55,16 @@ def func(instruction_id):
     
     # zsNo4HB9uLZ
     print("#5")
-    # data_set_path = "/home/cike/REVERIE/Matterport/v1/scans/" + scan + "/matterport_color_images/"
-    data_set_path = "/mnt/beeyan/Matterport/v1/scans/zsNo4HB9uLZ/zsNo4HB9uLZ/matterport_color_images/"
+    data_set_path = "/home/cike/REVERIE/Matterport/v1/scans/" + scan + "/matterport_color_images/"
+    # data_set_path = "/mnt/beeyan/Matterport/v1/scans/zsNo4HB9uLZ/zsNo4HB9uLZ/matterport_color_images/"
 
     image_path_list = []
     for node in trajectory:
-        image_name = node[0]
-        compose.image_compose(image_name)
-        print(image_name)
-        image_path = data_set_path + image_name + "_i0_0.jpg"
-        image_path = data_set_path + image_name + "_final.jpg"
+        viewpointid = node[0]
+        compose.image_compose(data_set_path ,viewpointid)
+        print(viewpointid)
+        image_path = data_set_path + viewpointid + "_i0_0.jpg"
+        image_path = data_set_path + viewpointid + "_final.jpg"
 
         image_path_list.append(image_path)
         print(image_path)
