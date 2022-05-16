@@ -10,7 +10,7 @@ def image_compose(data_set_path, viewpointid):
     IMAGE_ROW = 3  # 图片间隔，也就是合并成一张图后，一共有几行
     IMAGE_COLUMN = 6  # 图片间隔，也就是合并成一张图后，一共有几列
     # scanid = "0b22fa63d0f54a529c525afbf2e8bb25"
-    IMAGE_SAVE_PATH = viewpointid + "_final.jpg"
+    IMAGE_SAVE_PATH = IMAGES_PATH + viewpointid + "_final.jpg"
     to_image = Image.new('RGB', (IMAGE_COLUMN * IMAGE_SIZE, IMAGE_ROW * IMAGE_SIZE)) #创建一个新图
     # 循环遍历，把每张图片按顺序粘贴到对应位置上
     for y in range(1, IMAGE_ROW + 1):
