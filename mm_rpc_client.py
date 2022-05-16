@@ -36,7 +36,7 @@ def test_conn():
     # resp = c.call('TestService.add', 1,2,3)
     # print(resp)
 
-if __name__ == "__main__":
-    cli = TcpRpcClient('127.0.0.1', 2061, timeout=2)
-    resp = cli.call('TestService.add', a=1, b=2, c=3)
-    print(resp)
+# if __name__ == "__main__":
+#     cli = TcpRpcClient('127.0.0.1', 2061, timeout=2)
+#     resp = cli.call('TestService.add', a=1, b=2, c=3)
+#     print(resp)
