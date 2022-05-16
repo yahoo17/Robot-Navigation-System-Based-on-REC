@@ -19,7 +19,7 @@ def encode_picture(img_path):
 @rpc
 class TestService:
 
-    def get_image_list(self, instruction_id):
+    async def get_image_list(self, instruction_id):
         print("get_image_list begin")
         print("instruction_id"+instruction_id)
         image_path_list = mm_get_track.func(instruction_id)
@@ -45,9 +45,9 @@ class TestService:
 #     return "Hello, {}!".format(name)
 
 
-# server = TcpRpcServer('0.0.0.0', 2061)
-# server.serve()
+server = TcpRpcServer('0.0.0.0', 2061)
+server.serve()
 
 
-s = HttpRpcServer('0.0.0.0', 2061, workers=1)
-s.serve()
+# s = HttpRpcServer('0.0.0.0', 2061, workers=1)
+# s.serve()
