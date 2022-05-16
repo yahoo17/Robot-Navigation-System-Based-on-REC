@@ -7,6 +7,7 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import mm_rpc_client
 
+from gif import Image, save
 # import eval_release.py as eval_release
 # def get_model_reply(msg):
 #     instruction = msg
@@ -24,6 +25,49 @@ def get_response(msg):
 
     return n, resp
 
+from PIL import Image, ImageTk
+from itertools import count
+
+class ImageLabel(tk.Label):
+    """a label that displays images, and plays them if they are gifs"""
+    def load(self, im, root):
+        self.m_root = root
+        if isinstance(im, str):
+            im = Image.open(im)
+        self.loc = 0
+        self.frames = []
+
+        try:
+            for i in count(1):
+                self.frames.append(ImageTk.PhotoImage(im.copy()))
+                im.seek(i)
+        except EOFError:
+            pass
+
+        try:
+            self.delay = im.info['duration']
+        except:
+            self.delay = 100
+
+        if len(self.frames) == 1:
+            self.config(image=self.frames[0])
+        else:
+            self.next_frame()
+
+    def unload(self):
+        self.config(image="")
+        self.frames = None
+
+    def next_frame(self):
+        if self.frames:
+            self.loc += 1
+            self.loc %= len(self.frames)
+            self.config(image=self.frames[self.loc])
+            self.after(self.delay, self.next_frame)
+            title_i = "第"+str(self.loc) +"导航轨迹"
+            self.m_root.title(title_i)
+
+
 def main():
 
 
@@ -36,10 +80,7 @@ def main():
         returnMsg(send)
         cancelMsg()
     
-    # def showimg():
-    #     root = tk.Tk()
-    #     root.wm_geometry("530x150+500+300")
-    #     root.resizable(0, 0)
+
     
     def load_img(index,path):
         root = tk.Toplevel(app)
@@ -50,15 +91,30 @@ def main():
         img = Image.open(path)
         paned.photo = ImageTk.PhotoImage(img.resize((400,600)))
         tk.Label(paned, image=paned.photo).grid(row=index, column=0)
+
     def show_0(n):
         imgs =[]
         for i in range(n):
             imgs.append(str(i)+".jpg")
-        for i in range(len(imgs)):
-            load_img(i,imgs[i])
+
+        frames = []
+        for fn in imgs:
+            frames.append(Image.open(fn))
+
+        save(frames, 'final_track.gif', duration=1.5, unit="seconds", between="frames", loop=True)
+        root = tk.Toplevel(app)
+        title_i = "导航轨迹"
+        root.title(title_i)
+
+        lbl = ImageLabel(root)
+        lbl.pack()
+        lbl.load('final_track.gif', root)
+
+
 
     def returnMsg(send):
         n,_ = get_response(send)
+        print("picture counts:", n)
         if send == '\n':
             returnback = '请不要输入空消息噢'
         strMsg = "华智冰:" + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())+ '\n'
@@ -122,7 +178,7 @@ def main():
 
 
 if  __name__ == "__main__":
-    mm_rpc_client.test_conn()
+    # mm_rpc_client.test_conn()
     main()
 
 #!/usr/bin/python3
