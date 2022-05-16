@@ -1,13 +1,14 @@
 # -*- coding: UTF-8 -*-
 from tkinter import *
 import time
-import requests
-import json
+
 import tkinter as tk
 from PIL import Image, ImageTk
+from itertools import count
 import mm_rpc_client
 
 from gif import Image, save
+
 # import eval_release.py as eval_release
 # def get_model_reply(msg):
 #     instruction = msg
@@ -20,13 +21,8 @@ from gif import Image, save
 #     eval = eval_release.run_eval(resfiles, split_tag, evalType='nav')
 
 def get_response(msg):
-   
     n, resp = mm_rpc_client.get_image(msg)
-
     return n, resp
-
-from PIL import Image, ImageTk
-from itertools import count
 
 class ImageLabel(tk.Label):
     """a label that displays images, and plays them if they are gifs"""
@@ -60,16 +56,16 @@ class ImageLabel(tk.Label):
 
     def next_frame(self):
         if self.frames:
+            title_i = "第" + str(self.loc) + "导航轨迹"
+            self.m_root.title(title_i)
             self.loc += 1
             self.loc %= len(self.frames)
             self.config(image=self.frames[self.loc])
             self.after(self.delay, self.next_frame)
-            title_i = "第"+str(self.loc) +"导航轨迹"
-            self.m_root.title(title_i)
+
 
 
 def main():
-
 
     def sendMsg():#发送消息
         strMsg = "我:" + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())+ '\n'
@@ -79,9 +75,7 @@ def main():
         txtMsg.delete('0.0', END)
         returnMsg(send)
         cancelMsg()
-    
 
-    
     def load_img(index,path):
         root = tk.Toplevel(app)
         title_i = "第"+str(index)+"个轨迹"
@@ -100,8 +94,8 @@ def main():
         frames = []
         for fn in imgs:
             frames.append(Image.open(fn))
-
-        save(frames, 'final_track.gif', duration=1.5, unit="seconds", between="frames", loop=True)
+        print("frame size:"+len(frames))
+        save(frames, 'final_track.gif', duration=1, unit="seconds", between="frames", loop=False)
         root = tk.Toplevel(app)
         title_i = "导航轨迹"
         root.title(title_i)
@@ -109,7 +103,6 @@ def main():
         lbl = ImageLabel(root)
         lbl.pack()
         lbl.load('final_track.gif', root)
-
 
 
     def returnMsg(send):
