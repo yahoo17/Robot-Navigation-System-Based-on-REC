@@ -1,0 +1,62 @@
+[
+ {
+  "id": "4634_215",
+  "path": [
+   "11bdfcf0a0984901a1d6f60fdd8ee4a6",
+   "a80acc2328154455965a8be4133dee71",
+   "9b1e2472265c46989eb1c3911aa5971b",
+   "de7a74588c2842e9ba391abb153a0257",
+   "6416ac70316f44d1ae7ec5a3029b1703",
+   "487a4cc75db94e56aa4d1d35866736fc",
+   "0753202108e24c0094f09c60b8f36127"
+  ],
+  "objId": 215,
+  "instructions": [
+   "Enter the dining room and pick up the objects on the table",
+   "go to the dining room and pickup all the objects on the table inside and bring them to me",
+   "Rearrange the objects on the dining room table"
+  ],
+  "heading": 5.531,
+  "scan": "zsNo4HB9uLZ",
+  "path_id": 4634
+ },
+ {
+  "id": "2853_310",
+  "path": [
+   "ae2aeba150fd4fe4b6714b63e1a8ba51",
+   "099d792dbfb2402ca355fd7ed860128f",
+   "80cd596c480c4f72a7457433b862d179",
+   "30cacfc75a8c4f09bde7fc10899f0a53",
+   "e0f34035822e46f7b431406cd82ac871",
+   "8acc5cd5a6dd4da1ae3fc3088ff549c2"
+  ],
+  "objId": 310,
+  "instructions": [
+   "Go to the lounge on level 1 with the fire extinguisher and push the rope around the table closer to the walls",
+   "Go to the lounge on level 1 with the fireplace and wallpaper panels with plants in blue pots and clean off the rope in front of the black wooden desk"
+  ],
+  "heading": 1.605,
+  "scan": "Z6MFQCViBuw",
+  "path_id": 2853
+ },
+ {
+  "id": "2804_336",
+  "path": [
+   "a351e0438a09431083f40281b97fe9fb",
+   "1f88209d265d499abcf0f3565ea15b7a",
+   "131f205a7e6a46759bd6593624bfbf3b",
+   "58f5528b1cfc45dabd0bd063bab65ad9",
+   "d51cce377e9144cbb9c24ac99a105446",
+   "3aedda073dbe4f5f87e2d4b15c6ae8bc",
+   "24e1d29d44014a1484f7b0e48bbaffe5",
+   "b36bcfa6fd2843fe9a0a9cb0b7a244b5"
+  ],
+  "objId": 336,
+  "instructions": [
+   "Go to the lounge with green walls and polish the candle on the right",
+   "Go to the lounge to the left of the stairs on level 2 and bring me the candle from the table on the right"
+  ],
+  "heading": 4.695,
+  "scan": "oLBMNvg9in8",
+  "path_id": 2804
+ },

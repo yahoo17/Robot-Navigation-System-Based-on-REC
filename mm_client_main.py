@@ -67,13 +67,19 @@ class ImageLabel(tk.Label):
 
 def main():
 
+    def mapFunc(str):
+        data = {}
+        data["Enter the dining room and pick up the objects on the table"] = "4634_215"
+        data["Go to the lounge on level 1 with the fire extinguisher and push the rope around the table closer to the walls"] = "2853_310"
+        return data[ str.strip('\n')]
     def sendMsg():#发送消息
         strMsg = "我:" + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())+ '\n'
         txtMsgList.insert(END, strMsg, 'greencolor')
         send = txtMsg.get('0.0', END) # 输入发送的信息
+
         txtMsgList.insert(END, send) # 显示
         txtMsg.delete('0.0', END)
-        returnMsg(send)
+        returnMsg(mapFunc(send))
         cancelMsg()
 
     def load_img(index,path):
@@ -89,7 +95,7 @@ def main():
     def show_0(n):
         imgs =[]
         for i in range(n):
-            imgs.append(str(i+1)+".jpg")
+            imgs.append(str(i)+".jpg")
 
         frames = []
         for fn in imgs:
