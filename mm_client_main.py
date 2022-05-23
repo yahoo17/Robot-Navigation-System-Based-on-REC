@@ -116,7 +116,7 @@ def main():
         print("picture counts:", n)
         if send == '\n':
             returnback = '请不要输入空消息噢'
-        strMsg = "华智冰:" + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())+ '\n'
+        strMsg = "机器人:" + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())+ '\n'
 
         show_0(n)
         txtMsgList.insert(END, strMsg, 'greencolor')
@@ -134,7 +134,7 @@ def main():
             sendMsg()
     #创建窗口
     app = Tk()
-    app.title('SCUT机器人——华智冰')
+    app.title('SCUT机器人导航系统')
 
     #创建frame容器
     frmLT = Frame(width = 600, height = 360, bg = 'white')
