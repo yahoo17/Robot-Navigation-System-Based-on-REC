@@ -26,7 +26,7 @@ def bbox2(IMAGES_PATH,viewpointid):
 
     # (500, 375, 3) -> h w c
     src = cv2.imread(IMAGES_PATH + viewpointid+"_i0"+"_0"+".jpg")
-    cv2.namedWindow('image', cv2.WINDOW_AUTOSIZE)
+    # cv2.namedWindow('image', cv2.WINDOW_AUTOSIZE)
     src = np.array(src)
     # 画 b_box
     cv2.rectangle(src, tuple(ptLeftTop), tuple(ptRightBottom), point_color, thickness, lineType)
@@ -47,7 +47,7 @@ def bbox2(IMAGES_PATH,viewpointid):
     # cv2.imshow('image', src)
     cv2.imwrite(IMAGES_PATH + viewpointid+"_i0"+"_0"+".jpg")
     cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    # cv2.destroyAllWindows()
 
 
 # def bbox_process():
