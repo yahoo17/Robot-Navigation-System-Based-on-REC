@@ -16,7 +16,7 @@ def bbox2(IMAGES_PATH,viewpointid):
     # 文本框左上角坐标
     textleftop = []
     # b_box 右下角坐标
-    ptRightBottom = np.array([480+106,64+ 171])
+    ptRightBottom = np.array([106,171])
     # ptRightBottom = np.array([154+486, 156+324])
     # 框的颜色
     point_color = (0, 255, 0)
@@ -26,7 +26,7 @@ def bbox2(IMAGES_PATH,viewpointid):
     lineType = 4
 
     # (500, 375, 3) -> h w c
-    src = cv2.imread(IMAGES_PATH + viewpointid+"_i1"+"_0"+".jpg")
+    src = cv2.imread(IMAGES_PATH + viewpointid+"_i1"+"_1"+".jpg")
     # cv2.namedWindow('image', cv2.WINDOW_AUTOSIZE)
     src = np.array(src)
     # 画 b_box
@@ -46,7 +46,7 @@ def bbox2(IMAGES_PATH,viewpointid):
     print(src.shape)
 
     # cv2.imshow('image', src)
-    cv2.imwrite(IMAGES_PATH + viewpointid+"_i1"+"_0"+".jpg",src)
+    cv2.imwrite(IMAGES_PATH + viewpointid+"_i1"+"_1"+".jpg",src)
     cv2.waitKey(0)
     # cv2.destroyAllWindows()
 
