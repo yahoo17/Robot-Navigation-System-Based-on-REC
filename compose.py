@@ -16,7 +16,8 @@ def bbox2(IMAGES_PATH,viewpointid):
     # 文本框左上角坐标
     textleftop = []
     # b_box 右下角坐标
-    ptRightBottom = np.array([154+486, 156+324])
+    ptRightBottom = np.array([154, 156])
+    # ptRightBottom = np.array([154+486, 156+324])
     # 框的颜色
     point_color = (0, 255, 0)
     # 线的厚度
@@ -77,8 +78,8 @@ def image_compose(data_set_path, viewpointid):
     IMAGE_SAVE_PATH = IMAGES_PATH + viewpointid + "_final.jpg"
     to_image = Image.new('RGB', (IMAGE_COLUMN * IMAGE_SIZE, IMAGE_ROW * IMAGE_SIZE)) #创建一个新图
     # 循环遍历，把每张图片按顺序粘贴到对应位置上
-
-    bbox2(IMAGES_PATH,viewpointid)
+    if viewpointid == "2389e105b2584b3997a819cfe0b99d30":
+        bbox2(IMAGES_PATH,viewpointid)
     for y in range(1, IMAGE_ROW + 1):
         for x in range(1, IMAGE_COLUMN + 1):
             from_image = Image.open(IMAGES_PATH + viewpointid+"_i"+str(y-1)+"_"+str(x-1)+".jpg" ).resize(
