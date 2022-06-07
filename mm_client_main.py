@@ -68,10 +68,18 @@ class ImageLabel(tk.Label):
 def main():
 
     def mapFunc(str):
+        if str == '\n':
+            return "empty"
         data = {}
+        data["2204_355"] = "2204_355"
+        data["1220_391"] = "1220_391"
+        data["2804_336"] = "2804_336"
         data["Enter the dining room and pick up the objects on the table"] = "4634_215"
         data["Go to the lounge on level 1 with the fire extinguisher and push the rope around the table closer to the walls"] = "2853_310"
-        return data[ str.strip('\n')]
+        if str.strip('\n') in data.keys():
+            return data[ str.strip('\n')]
+        else:
+            return "no_match"
     def sendMsg():#发送消息
         strMsg = "我:" + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())+ '\n'
         txtMsgList.insert(END, strMsg, 'greencolor')
@@ -112,16 +120,21 @@ def main():
 
 
     def returnMsg(send):
-        n,_ = get_response(send)
-        print("picture counts:", n)
-        if send == '\n':
+        n = 0
+        # returnback = "网络未连接，请检查与服务器通信是否正常"
+        if send == 'empty':
             returnback = '请不要输入空消息噢'
-        strMsg = "机器人:" + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())+ '\n'
+        elif send == "no_match":
+            returnback = "未能正确理解您的指令，请检查是否有误"
+        else:
+            n,_ = get_response(send)
+            print("picture counts:", n)
+            show_0(n)
+            if n != 0:
+                returnback = "已经把该instruction的轨迹展示出来了！"
 
-        show_0(n)
+        strMsg = "机器人:" + time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())+ '\n'
         txtMsgList.insert(END, strMsg, 'greencolor')
-        if n != 0:
-            returnback = "已经把该instruction的轨迹展示出来了！"
         txtMsgList.insert(END, returnback)
         txtMsgList.insert(END, '\n')
         txtMsg.delete('0.0', END)
