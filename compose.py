@@ -5,18 +5,18 @@ import os
 import cv2
 def bbox2(IMAGES_PATH,viewpointid):
     # [
-    #     486,
-    #     324,
-    #     154,
-    #     156
+    #     480,
+    #     64,
+    #     106,
+    #     171
     # ],
     class_name = "towel"
     # b_box 左上角坐标
-    ptLeftTop = np.array([486, 324])
+    ptLeftTop = np.array([480, 64])
     # 文本框左上角坐标
     textleftop = []
     # b_box 右下角坐标
-    ptRightBottom = np.array([154, 156])
+    ptRightBottom = np.array([480+106,64+ 171])
     # ptRightBottom = np.array([154+486, 156+324])
     # 框的颜色
     point_color = (0, 255, 0)
@@ -26,7 +26,7 @@ def bbox2(IMAGES_PATH,viewpointid):
     lineType = 4
 
     # (500, 375, 3) -> h w c
-    src = cv2.imread(IMAGES_PATH + viewpointid+"_i0"+"_0"+".jpg")
+    src = cv2.imread(IMAGES_PATH + viewpointid+"_i1"+"_0"+".jpg")
     # cv2.namedWindow('image', cv2.WINDOW_AUTOSIZE)
     src = np.array(src)
     # 画 b_box
